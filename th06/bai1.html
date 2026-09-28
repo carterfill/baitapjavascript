@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 - In các số từ 1 tới N</title>
+</head>
+<body>
+    <h3>Bài 1: Nhập vào một số N, khi nhấn nút thì in các số từ 1 tới N</h3>
+    <input type="text" id="soN" size="10" placeholder="Nhập N">
+    <input type="button" value="In các số" onclick="InSo()">
+    <p id="ketQua"></p>
+
+    <script>
+        function InSo() {
+            var n = parseInt(document.getElementById('soN').value);
+            var ketQua = document.getElementById('ketQua');
+
+            if (isNaN(n) || n < 1) {
+                ketQua.innerText = "Bạn hãy nhập vào một số nguyên lớn hơn 0!";
+                return;
+            }
+
+            var chuoiSo = "";
+            for (var i = 1; i <= n; i++) {
+                chuoiSo += i + " ";
+            }
+            ketQua.innerText = chuoiSo;
+        }
+    </script>
+</body>
+</html>

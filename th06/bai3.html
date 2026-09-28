@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Thay đổi màu nền, màu chữ, tiêu đề, trạng thái</title>
+</head>
+<body>
+    <h3>Bài 3: Thay đổi thuộc tính của tài liệu</h3>
+    <p>Ví dụ: nhập <b>yellow</b>, <b>red</b>, <b>Trang web của tôi</b> rồi nhấn nút.</p>
+
+    MauNen: <input type="text" id="MauNen"><br><br>
+    MauChu: <input type="text" id="MauChu"><br><br>
+    TieuDe: <input type="text" id="TieuDe"><br><br>
+    TrangThai: <input type="text" id="TrangThai"><br><br>
+
+    <input type="button" value="Thay đổi" onclick="ThayDoi()">
+
+    <script>
+        function ThayDoi() {
+
+            document.body.style.backgroundColor = document.getElementById('MauNen').value;
+
+            document.body.style.color = document.getElementById('MauChu').value;
+
+            document.title = document.getElementById('TieuDe').value;
+
+            window.status = document.getElementById('TrangThai').value;
+        }
+    </script>
+
+    <p><i>Lưu ý: các trình duyệt hiện nay (Chrome, Edge, Firefox...) đã bỏ thanh trạng thái
+    nên câu lệnh window.status chỉ còn giá trị minh họa theo yêu cầu của đề bài.</i></p>
+</body>
+</html>

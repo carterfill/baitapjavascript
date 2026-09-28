@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Slide show hình ảnh</title>
+</head>
+<body>
+    <h3>Bài 6: Slide show hình ảnh</h3>
+
+    <img id="anh" src="img/hinh1.jpg" width="480" height="300" alt="Slide show">
+    <br><br>
+
+    <input type="button" value="<<" onclick="Truoc()">
+    <input type="button" id="nutChay" value="Tự động chạy" onclick="TuDong()">
+    <input type="button" value=">>" onclick="Sau()">
+
+    <script>
+        var dsAnh = ["img/hinh1.jpg", "img/hinh2.jpg", "img/hinh3.jpg"];
+        var viTri = 0;
+        var boDem = null;
+
+        function HienAnh() {
+            document.getElementById('anh').src = dsAnh[viTri];
+        }
+
+        function Sau() {
+            viTri = (viTri + 1) % dsAnh.length;
+            HienAnh();
+        }
+
+        function Truoc() {
+            viTri = (viTri - 1 + dsAnh.length) % dsAnh.length;
+            HienAnh();
+        }
+
+        function TuDong() {
+            var nut = document.getElementById('nutChay');
+            if (boDem == null) {
+                boDem = setInterval(Sau, 2000);
+                nut.value = "Dừng lại";
+            } else {
+                clearInterval(boDem);
+                boDem = null;
+                nut.value = "Tự động chạy";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 - Giải phương trình bậc 2</title>
+</head>
+<body>
+    <h3>Giải phương trình bậc 2: ax² + bx + c = 0</h3>
+    <p>
+        <input type="text" id="a" size="5"> x² +
+        <input type="text" id="b" size="5"> x +
+        <input type="text" id="c" size="5"> = 0
+    </p>
+    <p id="ketQua"></p>
+    <input type="button" onclick="GiaiPTB2()" value="Giải phương trình">
+
+    <script>
+        function GiaiPTB2() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+            var kq = document.getElementById('ketQua');
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                kq.innerText = "Bạn hãy nhập đủ 3 số a, b, c!";
+                return;
+            }
+
+            if (a == 0) {
+
+                if (b == 0) {
+                    if (c == 0)
+                        kq.innerText = "Phương trình có vô số nghiệm.";
+                    else
+                        kq.innerText = "Phương trình vô nghiệm.";
+                } else {
+                    kq.innerText = "Phương trình bậc nhất, có nghiệm x = " + (-c / b);
+                }
+            } else {
+                var delta = b * b - 4 * a * c;
+                if (delta < 0) {
+                    kq.innerText = "Phương trình vô nghiệm.";
+                } else if (delta == 0) {
+                    kq.innerText = "Phương trình có nghiệm kép x1 = x2 = " + (-b / (2 * a));
+                } else {
+                    var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    kq.innerText = "Phương trình có 2 nghiệm phân biệt: x1 = " + x1 + " ; x2 = " + x2;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7 - Game lật hình</title>
+    <style>
+        #bang {
+            position: relative;
+            width: 440px;
+            height: 440px;
+        }
+        #bang img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .o {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 60px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h3>Bài 7: Game lật hình - click vào một ô để lộ hình nền bên dưới</h3>
+
+    <div id="bang">
+
+        <img src="img/nen.jpg" width="440" height="440" alt="Hình nền">
+
+        <div class="o" style="left:0px;   top:0px;   background:#FFB300;" onclick="Lat(this)">1</div>
+        <div class="o" style="left:240px; top:0px;   background:#7CB342;" onclick="Lat(this)">2</div>
+        <div class="o" style="left:0px;   top:240px; background:#E53935;" onclick="Lat(this)">3</div>
+        <div class="o" style="left:240px; top:240px; background:#5C6BC0;" onclick="Lat(this)">4</div>
+    </div>
+
+    <p><input type="button" value="Chơi lại" onclick="ChoiLai()"></p>
+
+    <script>
+
+        function Lat(o) {
+            o.style.visibility = "hidden";
+        }
+
+        function ChoiLai() {
+            var dsO = document.getElementsByClassName('o');
+            for (var i = 0; i < dsO.length; i++) {
+                dsO[i].style.visibility = "visible";
+            }
+        }
+    </script>
+</body>
+</html>

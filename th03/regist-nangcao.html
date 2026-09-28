@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký thông tin sinh viên (nâng cao)</title>
+</head>
+<body>
+    <h1>NHẬP THÔNG TIN SINH VIÊN</h1>
+    <form action="https://www.google.com" method="post">
+
+        <table border="1" cellspacing="0" cellpadding="6" width="900">
+            <tr>
+                <td rowspan="3" width="230" align="center">
+                    <img src="img/hinh01.jpg" width="220" alt="Hình đại diện">
+                </td>
+                <td width="180">HỌ VÀ TÊN:</td>
+                <td colspan="2"><input type="text" name="hoten" size="20"></td>
+            </tr>
+            <tr>
+                <td>MÃ SỐ SINH VIÊN :</td>
+                <td colspan="2"><input type="text" name="mssv" size="20"></td>
+            </tr>
+            <tr>
+                <td>NGÀY SINH:</td>
+                <td colspan="2"><input type="date" name="ngaysinh"></td>
+            </tr>
+            <tr>
+                <td>CHUYÊN NGÀNH:</td>
+                <td colspan="3">
+                    <input type="radio" name="chuyennganh" value="CNPM"> CNPM
+                    <input type="radio" name="chuyennganh" value="HTTT"> HTTT
+                    <input type="radio" name="chuyennganh" value="AN NINH MANG"> AN NINH MANG
+                </td>
+            </tr>
+            <tr>
+                <td>SỞ THÍCH:</td>
+                <td colspan="3">
+                    <input type="checkbox" name="sothich" value="VIẾT CHƯƠNG TRÌNH"> VIẾT CHƯƠNG TRÌNH<br>
+                    <input type="checkbox" name="sothich" value="PHÂN TÍCH CSDL"> PHÂN TÍCH CSDL<br>
+                    <input type="checkbox" name="sothich" value="XÂY DỰNG SƠ ĐỒ MẠNG"> XÂY DỰNG SƠ ĐỒ MẠNG
+                </td>
+            </tr>
+            <tr>
+                <td>MÀU SẮC YÊU THÍCH:</td>
+                <td><input type="color" name="mausac" value="#000000"></td>
+                <td>HÌNH ĐẠI DIỆN:</td>
+                <td><input type="file" name="hinhdaidien"></td>
+            </tr>
+            <tr>
+                <td>TÊN ĐĂNG NHẬP WEB TRƯỜNG:</td>
+                <td><input type="text" name="tendangnhap" size="15"></td>
+                <td>MẬT KHẨU ĐĂNG NHẬP WEB TRƯỜNG:</td>
+                <td><input type="password" name="matkhau" size="15"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3"><input type="submit" value="Gửi dữ liệu về máy chủ"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

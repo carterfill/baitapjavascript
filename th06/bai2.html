@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Đổi màu 10 thẻ div</title>
+    <style>
+        .o {
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin: 5px;
+            background: gray;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            font-size: 20px;
+        }
+        p { clear: both; }
+    </style>
+</head>
+<body>
+    <h3>Bài 2: Nhấn nút để đổi màu 10 thẻ div (chẵn - đỏ, lẻ - xanh)</h3>
+
+    <div class="o">1</div>
+    <div class="o">2</div>
+    <div class="o">3</div>
+    <div class="o">4</div>
+    <div class="o">5</div>
+    <div class="o">6</div>
+    <div class="o">7</div>
+    <div class="o">8</div>
+    <div class="o">9</div>
+    <div class="o">10</div>
+
+    <p><input type="button" value="Đổi màu" onclick="DoiMau()"></p>
+
+    <script>
+        function DoiMau() {
+            var dsDiv = document.getElementsByClassName('o');
+            for (var i = 0; i < dsDiv.length; i++) {
+                if ((i + 1) % 2 == 0) {
+
+                    dsDiv[i].style.backgroundColor = "red";
+                } else {
+
+                    dsDiv[i].style.backgroundColor = "green";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

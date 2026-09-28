@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TO-DO LIST</title>
+    <style>
+        body {
+            background: #e9ebee;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        #khung {
+            background: white;
+            width: 420px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        #dongNhap {
+            display: flex;
+        }
+        #viecMoi {
+            flex: 1;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: #2e3b4e;
+            color: white;
+        }
+        #viecMoi::placeholder {
+            color: #9aa5b1;
+        }
+        #nutThem {
+            width: 60px;
+            border: none;
+            background: #1dc48f;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+        }
+        .viec {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid #e4e6eb;
+        }
+        .viec input[type="checkbox"] {
+            margin-right: 12px;
+            width: 17px;
+            height: 17px;
+        }
+        .viec span {
+            flex: 1;
+        }
+        .viec.xong span {
+            color: #b0b4bb;
+            text-decoration: line-through;
+        }
+        .nutXoa {
+            margin-left: auto;
+            border: none;
+            background: none;
+            color: #b0b4bb;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .nutXoa:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="khung">
+        <div id="dongNhap">
+            <input type="text" id="viecMoi" placeholder="Enter a task"
+                   onkeydown="if (event.key == 'Enter') ThemViec()">
+            <button id="nutThem" onclick="ThemViec()">+</button>
+        </div>
+        <div id="danhSach"></div>
+    </div>
+
+    <script>
+        function ThemViec() {
+            var oNhap = document.getElementById('viecMoi');
+            var tenViec = oNhap.value.trim();
+            if (tenViec == "") return;
+
+            var dong = document.createElement('div');
+            dong.className = 'viec';
+
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.onclick = function () {
+                dong.classList.toggle('xong', checkbox.checked);
+            };
+
+            var nhan = document.createElement('span');
+            nhan.innerText = tenViec;
+
+            var nutXoa = document.createElement('button');
+            nutXoa.className = 'nutXoa';
+            nutXoa.innerText = '✕';
+            nutXoa.onclick = function () {
+                dong.remove();
+            };
+
+            dong.appendChild(checkbox);
+            dong.appendChild(nhan);
+            dong.appendChild(nutXoa);
+
+            document.getElementById('danhSach').appendChild(dong);
+            oNhap.value = '';
+            oNhap.focus();
+        }
+
+        window.onload = function () {
+            var viecMau = ["Việc 1", "Việc 2", "Việc 3"];
+            for (var i = 0; i < viecMau.length; i++) {
+                document.getElementById('viecMoi').value = viecMau[i];
+                ThemViec();
+            }
+
+            var viecDau = document.querySelector('.viec input[type="checkbox"]');
+            viecDau.checked = true;
+            viecDau.onclick();
+        };
+    </script>
+</body>
+</html>
